@@ -1,0 +1,23 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+bool repeatedSubstringPattern(string s) {
+    int n=s.size();
+        for(int i=1;i<=n/2;i++){
+            if(n%i != 0) continue;
+            bool valid=true;
+            for(int j =i;j<n;j++){
+                if(s[j] != s[j%i]){
+                    valid=false;
+                    break;
+                }
+            }
+            if(valid) return true;
+        }
+        return false;
+}
+
+int main(){
+    cout << repeatedSubstringPattern("abab") << endl;
+    return 0;
+}
